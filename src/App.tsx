@@ -13,6 +13,8 @@ import FlagQuiz from "./pages/FlagQuiz";
 import ContinentMatch from "./pages/ContinentMatch";
 import LetterMatch from "./pages/LetterMatch";
 import LearnTopic from "./pages/LearnTopic";
+import FlappyBird from "./pages/FlappyBird";
+import TicTacToe from "./pages/TicTacToe";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -34,6 +36,8 @@ const App = () => (
           <Route path="/continent-match" element={<ContinentMatch />} />
           <Route path="/letter-match" element={<LetterMatch />} />
           <Route path="/learn-topic" element={<LearnTopic />} />
+          <Route path="/flappy-bird" element={<FlappyBird />} />
+          <Route path="/tic-tac-toe" element={<TicTacToe />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

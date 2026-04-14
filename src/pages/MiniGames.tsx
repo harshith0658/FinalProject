@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowLeft, Trash2, Droplets, TreePine, Gamepad2, Lock, Coins, Star, Award, Brain, Flag } from "lucide-react";
+import { ArrowLeft, Trash2, Droplets, TreePine, Gamepad2, Lock, Coins, Star, Award, Brain, Flag, Bird, Hash } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useEffect, useState } from "react";
@@ -111,6 +111,24 @@ const MiniGames = () => {
   };
 
   const games = [
+    {
+      id: "flappy-bird",
+      title: "Flopping Bird",
+      description: "Navigate the bird through the pipes",
+      icon: Bird,
+      bgColor: "from-sky-600/20 to-blue-600/20",
+      glowColor: "group-hover:shadow-[0_0_30px_rgba(56,189,248,0.6)]",
+      path: "/flappy-bird"
+    },
+    {
+      id: "tic-tac-toe",
+      title: "Tic Tac Toe",
+      description: "Dynamic X and O battle",
+      icon: Hash,
+      bgColor: "from-rose-600/20 to-orange-600/20",
+      glowColor: "group-hover:shadow-[0_0_30px_rgba(244,63,94,0.6)]",
+      path: "/tic-tac-toe"
+    },
     {
       id: "flag-quiz",
       title: "Flag Quiz",
@@ -230,7 +248,7 @@ const MiniGames = () => {
           ) : (
             games.map((game, index) => {
               const Icon = game.icon;
-              const isLocked = !unlockedGames.has(game.id);
+              const isLocked = !["flappy-bird", "tic-tac-toe"].includes(game.id) && !unlockedGames.has(game.id);
               const isUnlocking = unlockingGame === game.id;
 
               return (
